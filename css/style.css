@@ -1,0 +1,526 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+/* Default colors */
+:root {
+  --cool-dark: #01132d;
+  --cool-orange: rgba(253, 189, 49);
+  --titles: #ff851b;
+  --white: #fff;
+  --black: #333;
+}
+body {
+  background: var(--cool-dark);
+  color: var(--white);
+  text-decoration: none;
+  outline: none;
+  font-family: "Lato", sans-serif;
+}
+.container {
+  width: 100%;
+  background: var(--cool-dark);
+  color: var(--white);
+  transition: all 0.2s;
+  overflow: hidden;
+}
+a:link {
+  text-decoration: none;
+}
+hr {
+  border: none;
+  height: 2px;
+  background-color: var(--white);
+}
+.hidden {
+  display: none;
+}
+.container.dark {
+  background: var(--white);
+  color: var(--black);
+  transition: all 1s;
+}
+.sub-header,
+.top-header {
+  opacity: 0;
+}
+.logo {
+  display: none;
+}
+.logo--name {
+  color: var(--titles);
+}
+.text {
+  animation-name: fadeInLeft;
+  animation-duration: 2s;
+  animation-delay: 2s;
+  animation-fill-mode: forwards;
+}
+.nav {
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+/* Header styles */
+#header {
+  width: 100%;
+  margin: 0.75rem;
+}
+.nav .nav__link {
+  color: white;
+}
+.hamsburger,
+.theme {
+  cursor: pointer;
+}
+.nav {
+  width: 100%;
+  transition: all 1s;
+}
+.nav__links {
+  display: flex;
+  text-align: right;
+  transition: all 1s;
+  z-index: 999;
+}
+.nav__item {
+  list-style: none;
+  margin-left: 1.5rem;
+}
+.nav.sticky {
+  /* background: #14213d; */
+  margin: auto;
+  color: var(white);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  transition: all 1s;
+}
+
+/* Header text */
+.default-text,
+.typing {
+  font-size: 1.75rem;
+}
+
+.sub-header {
+  margin-top: 2.5rem;
+  height: 30rem;
+  opacity: 0;
+}
+.animated--text {
+  margin: 10px 5px;
+}
+
+.text h1 {
+  font-size: 3vw;
+  letter-spacing: 2px;
+}
+
+.pretext {
+  font-weight: 500;
+  text-align: left;
+  width: 90%;
+  padding: 3px 5px;
+  margin-right: 10px;
+}
+
+/* Header Buttons */
+#btns {
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  font-size: 1.25rem;
+  background: transparent;
+  border: 2px solid var(--white);
+  color: var(--white);
+  cursor: pointer;
+  border-radius: 80px 10px 80px 20px;
+  transition: all 1s;
+}
+a #btns:hover {
+  background: var(--titles);
+  border: 2px solid var(--titles);
+}
+
+.profile--pics img {
+  position: relative;
+  border-radius: 80%;
+  text-align: center;
+  height: 30vh;
+  width: 70%;
+  margin-top: 20px;
+
+  /* border: 7px solid #192430; */
+}
+
+.ham-icon,
+.cancel-icon {
+  display: none;
+}
+/* section pretext show text */
+.choose--view {
+  cursor: pointer;
+  color: var(--cool-orange);
+  text-decoration: underline;
+}
+
+/* section 2 About me  */
+.about__heading {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+.dummy--pics {
+  width: 80%;
+}
+
+/* card */
+.card {
+  width: auto;
+  margin: 4rem 0;
+  background: transparent;
+}
+.code--link {
+  background: transparent;
+  border: 2px solid transparent;
+  color: var(--cool-orange);
+}
+.code--link:hover {
+  background: var(--cool-orange);
+  color: var(--white);
+  border: 2px solid var(--cool-orange);
+  border-radius: 15px;
+  padding: 15px;
+}
+
+/* section 3 skills acquired */
+
+.btn-skills {
+  border-radius: 10px;
+  padding: 5px 15px;
+  transition: all 0.5s;
+}
+.active--btn--skills {
+  background-color: var(--cool-orange);
+  border: 2px solid var(--cool-orange);
+  transition: all 0.5s;
+}
+
+/* Section 2 tech stack */
+.tech-stack-container {
+  position: relative;
+  width: 100px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.tech-item {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  background-color: transparent;
+  border-radius: 50%;
+}
+
+.tech-connector {
+  width: 7rem;
+  text-align: center;
+  border-radius: 2rem;
+  padding: 12px;
+  background: var(--titles);
+  /* position: absolute; */
+  /* z-index: -1; */
+}
+
+/*----------------------my portfolio-----------------------------*/
+.thumbnail {
+  border: 3px solid grey;
+  border-radius: 12px;
+  transition: all 0.3s;
+  margin-top: 25px;
+  position: relative;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: #003366e7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: transform 0.5s ease-in;
+}
+.overlay:hover {
+  opacity: 1;
+}
+.overlay-btn {
+  border: none;
+  padding: 6px 18px;
+  color: #003366;
+  background-color: white;
+
+  border-radius: 5px;
+}
+.img-expand img {
+  width: 100%;
+  height: 100%;
+}
+.portfolio img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/*----------------------my portfolio------------------------------*/
+
+/* section contact */
+
+.send-mail {
+  border-radius: 10rem;
+  padding: 15px;
+  text-align: center;
+  margin: 2.75rem auto;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  color: var(--white);
+  border: 3px solid var(--white);
+}
+
+.social-icon {
+  font-size: 2.5rem;
+  padding: 1.5rem;
+  margin: auto;
+}
+.social-icon:hover {
+  font-size: 3rem;
+}
+/* project sections */
+.tech-stack {
+  background-color: var(--cool-orange);
+  border: 2px solid var(--cool-orange);
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+/* footer */
+.back-up {
+  position: fixed;
+  padding: 10px;
+  bottom: 3%;
+  right: 5%;
+  font-size: 25px;
+  z-index: 100;
+}
+
+#footer {
+  width: 90%;
+  text-align: center;
+}
+/* General styling */
+
+/* Lazy loading images */
+img {
+  transition: all 0.5s;
+}
+
+.lazy-img {
+  filter: blur(20px);
+}
+
+/* section Revealing */
+.sections {
+  transition: all 2.5s;
+}
+.section--hidden {
+  opacity: 0;
+  transform: translateY(8rem);
+}
+/* General styling ends */
+
+/* smaller screen responsiveness */
+@media screen and (max-width: 765px) {
+  .logo {
+    font-size: 2.5vw;
+    font-weight: 600;
+  }
+
+  .top--header {
+    margin-bottom: 7vh;
+  }
+  #btns {
+    width: 100%;
+  }
+  .nav {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav__item {
+    width: 90%;
+    text-align: center;
+    margin-top: 2rem;
+  }
+  .nav--item-1 {
+    margin-top: 0.25rem;
+  }
+  .nav__links {
+    display: none;
+    z-index: 999;
+  }
+
+  .profile--pics img {
+    border-radius: 80%;
+    height: 30vh;
+    width: 70%;
+    top: 40%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+  }
+  .animated--text {
+    width: 95%;
+    margin-bottom: 15px;
+    font-size: 2.5rem;
+  }
+  .default-text,
+  .typing {
+    font-size: 1.5rem;
+  }
+  .dummy--pics {
+    margin-top: 0;
+    width: 85vw;
+    height: 40vh;
+  }
+  .text h1 {
+    font-size: 5vw;
+    letter-spacing: 2px;
+  }
+  .sections {
+    width: 95%;
+    margin: 3px;
+    padding: 3px;
+  }
+
+  .sub-header {
+    margin: 3rem 0;
+    height: 92vh;
+  }
+  .pretext {
+    margin-right: 0;
+  }
+
+  .hamsburger,
+  .theme {
+    position: absolute;
+    width: 20vw;
+    left: 70%;
+    /* margin-top: 5px; */
+    transition: all 1s;
+  }
+  .logo--name,
+  .hamsburger,
+  .theme {
+    top: 5px;
+    margin-bottom: 2.5rem;
+  }
+  .theme {
+    left: 85%;
+  }
+
+  .ham-icon,
+  .cancel-icon {
+    font-size: 6vw;
+    display: block;
+    top: 5px;
+    transition: all 2s;
+  }
+  .cancel-icon {
+    display: none;
+  }
+
+  .skills-acquired {
+    width: 20vw;
+  }
+  .skills-acquired:hover {
+    width: 22vw;
+    /* background-color: red; */
+  }
+
+  .social-icon {
+    font-size: 2rem;
+    padding: 1.25rem;
+  }
+  .social-icon:hover {
+    font-size: 2.25rem;
+  }
+  /* #section--contact {
+    position: absolute;
+    bottom: 5;
+  } */
+}
+
+/* larger screen responsiveness */
+@media screen and (min-width: 765px) {
+  /* Header responsiveness */
+
+  .logo {
+    font-size: 4vw;
+    font-weight: 700;
+  }
+  .profile--pics img {
+    width: 95%;
+    height: 25rem;
+    margin: 2rem 0;
+  }
+  .my-image.middle {
+    position: absolute;
+    top: 15%;
+    width: 90%;
+  }
+  .skill-name {
+    width: 60%;
+  }
+  .dummy--pics {
+    position: absolute;
+    top: 10%;
+    height: 50vh;
+  }
+
+  .back-up {
+    right: 20%;
+    bottom: 0;
+    font-size: 40px;
+  }
+  .card {
+    margin: 0 1.75rem;
+  }
+  /* Tech stack */
+  .tech-stack-container {
+    margin-top: 8rem;
+    width: 250px;
+    height: 350px;
+  }
+}
